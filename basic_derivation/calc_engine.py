@@ -64,7 +64,7 @@ class CalcEngine(object):
                                                                         BalanceMRQ.TOTLIAB,
                                                                         BalanceMRQ.RIGHAGGR,
                                                                         BalanceMRQ.INTAASSET,
-                                                                        BalanceMRQ.DEVEEXPE,
+                                                                        # BalanceMRQ.DEVEEXPE,
                                                                         BalanceMRQ.GOODWILL,
                                                                         BalanceMRQ.LOGPREPEXPE,
                                                                         BalanceMRQ.DEFETAXASSET,
@@ -91,7 +91,7 @@ class CalcEngine(object):
                                                                           IndicatorMRQ.NDEBT,
                                                                           IndicatorMRQ.NONINTCURLIABS,
                                                                           IndicatorMRQ.NONINTNONCURLIAB,
-                                                                          IndicatorMRQ.CURDEPANDAMOR,
+                                                                          # IndicatorMRQ.CURDEPANDAMOR,
                                                                           IndicatorMRQ.TOTIC,
                                                                           IndicatorMRQ.EBIT,
                                                                           ], dates=[trade_date])
@@ -112,7 +112,6 @@ class CalcEngine(object):
         # balance_ttm_sets = engine.fetch_fundamentals_pit_extend_company_id(BalanceTTM,
         #                                                                    [BalanceTTM.MINYSHARRIGH,
         #                                                                    ], dates=[trade_date]).drop(columns, axis=1)
-
         income_ttm_sets = engine.fetch_fundamentals_pit_extend_company_id(IncomeTTM,
                                                                           [IncomeTTM.BIZTOTINCO,
                                                                            IncomeTTM.BIZTOTCOST,
@@ -120,7 +119,7 @@ class CalcEngine(object):
                                                                            IncomeTTM.SALESEXPE,
                                                                            IncomeTTM.MANAEXPE,
                                                                            IncomeTTM.FINEXPE,
-                                                                           IncomeTTM.INTEEXPE,
+                                                                           # IncomeTTM.INTEEXPE,
                                                                            IncomeTTM.ASSEIMPALOSS,
                                                                            IncomeTTM.PERPROFIT,
                                                                            IncomeTTM.TOTPROFIT,
@@ -181,13 +180,13 @@ class CalcEngine(object):
         factor_derivation = derivation.NonRecGainLoss(tp_derivation, factor_derivation)
         factor_derivation = derivation.NetOptInc(tp_derivation, factor_derivation)
         factor_derivation = derivation.WorkingCap(tp_derivation, factor_derivation)
-        factor_derivation = derivation.TangibleAssets(tp_derivation, factor_derivation)
+        # factor_derivation = derivation.TangibleAssets(tp_derivation, factor_derivation)
         factor_derivation = derivation.RetainedEarnings(tp_derivation, factor_derivation)
         factor_derivation = derivation.InterestBearingLiabilities(tp_derivation, factor_derivation)
         factor_derivation = derivation.NetDebt(tp_derivation, factor_derivation)
         factor_derivation = derivation.InterestFreeCurLb(tp_derivation, factor_derivation)
         factor_derivation = derivation.InterestFreeNonCurLb(tp_derivation, factor_derivation)
-        factor_derivation = derivation.DepAndAmo(tp_derivation, factor_derivation)
+        # factor_derivation = derivation.DepAndAmo(tp_derivation, factor_derivation)
         factor_derivation = derivation.EquityPC(tp_derivation, factor_derivation)
         factor_derivation = derivation.TotalInvestedCap(tp_derivation, factor_derivation)
         factor_derivation = derivation.TotalAssets(tp_derivation, factor_derivation)
@@ -195,7 +194,7 @@ class CalcEngine(object):
         factor_derivation = derivation.TotalLib(tp_derivation, factor_derivation)
         factor_derivation = derivation.ShEquity(tp_derivation, factor_derivation)
         factor_derivation = derivation.CashAndCashEqu(tp_derivation, factor_derivation)
-        factor_derivation = derivation.EBIAT(tp_derivation, factor_derivation)
+        # factor_derivation = derivation.EBIAT(tp_derivation, factor_derivation)
         factor_derivation = derivation.SalesTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.TotalOptCostTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.OptIncTTM(ttm_derivation, factor_derivation)
@@ -204,21 +203,21 @@ class CalcEngine(object):
         factor_derivation = derivation.AdmFeeTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.FinFeeTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.PerFeeTTM(ttm_derivation, factor_derivation)
-        factor_derivation = derivation.InterestExpTTM(ttm_derivation, factor_derivation)
+        # factor_derivation = derivation.InterestExpTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.MinorInterestTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.AssetImpLossTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetIncFromOptActTTM(ttm_derivation, factor_derivation)
-        factor_derivation = derivation.NetIncFromValueChgTTM(ttm_derivation, factor_derivation)
+        # factor_derivation = derivation.NetIncFromValueChgTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.OptProfitTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetNonOptIncAndExpTTM(ttm_derivation, factor_derivation)
-        factor_derivation = derivation.EBITTTM(ttm_derivation, factor_derivation)
+        # factor_derivation = derivation.EBITTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.IncTaxTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.TotalProfTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetIncTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetProfToPSTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetProfAfterNonRecGainsAndLossTTM(ttm_derivation, factor_derivation)
-        factor_derivation = derivation.EBITFORPTTM(ttm_derivation, factor_derivation)
-        factor_derivation = derivation.EBITDATTM(ttm_derivation, factor_derivation)
+        # factor_derivation = derivation.EBITFORPTTM(ttm_derivation, factor_derivation)
+        # factor_derivation = derivation.EBITDATTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.CashRecForSGAndPSTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NCFOTTM(ttm_derivation, factor_derivation)
         factor_derivation = derivation.NetCashFlowFromInvActTTM(ttm_derivation, factor_derivation)
